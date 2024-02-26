@@ -28,18 +28,39 @@ let comidaAleatoria  = () => {
 }
 
 const perdiste = () => {
-    clearInterval(setIntervalId)
-    alert('haz perdido')
-    location.reload();  
-}
+    clearInterval(setIntervalId);
+    backgroundSound.pause();
+    document.getElementById('losser').play();
+    setTimeout(() => {
+        alert('Haz perdido');
+        document.getElementById('reiniciarJuego').style.display = 'block';
+    }, 1000); 
+    culebraX = 5;
+    culebraY = 10;
+    velocidadX = 0;
+    velocidadY = 0;
+    culebraTamaño = [];
+    gameOver = false;
+    iniciarGame(); 
+};
 
+
+document.getElementById('reiniciarJuego').addEventListener('click', () => {
+    location.reload();
+});
+
+let backgroundSound = new Audio('audio/tetrisgameboy1-gameboy.mp3');
+backgroundSound.loop = true;
+backgroundSound.addEventListener('canplaythrough', function() {
+    backgroundSound.play();
+});
 
 const iniciarGame = () => {
     if(gameOver) return perdiste(); 
    let html = `<div class = "comida" style= "grid-area: ${comidaY} / ${comidaX}">
     </div>`;    
 
-
+    
 
     if(culebraX === comidaX && culebraY === comidaY){
         comidaAleatoria();

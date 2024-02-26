@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-
+    background-color: #000000b2;
 }
 
 .tablero {
@@ -35,7 +35,7 @@ body {
 .play-board {
     width: 100%;
     height: 100%;
-    background-color: rgb(23, 36, 48);
+    background-color: rgb(26, 26, 26);
     display: grid;
     grid-template: repeat(30, 1fr) / repeat(30, 1fr);
 }
@@ -46,9 +46,8 @@ body {
 }
 
 .play-board .culebra {
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
-    border: 1px solid #000;
 }
 
 .ventana {
